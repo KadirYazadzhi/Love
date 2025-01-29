@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: Solitreo;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: #fee2e9;
+    font-family: "Pangolin", cursive;
+    font-size: 1vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    top: 0vmin;
+}
+
+.envelope {
+    position: relative;
+    background: #f980a1;
+    height: 30vmin;
+    width: 47.9vmin;
+}
+
+.card {
+    position: absolute;
+    background: white;
+    height: 25vmin;
+    width: 43vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 2.5vmin;
+    top: 0vmin;
+}
+
+.message {
+    position: absolute;
+    top: 5vmin;
+}
+
+.cover {
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-bottom: 15vmin solid #fba7bd;
+    border-left: 24vmin solid transparent;
+    border-right: 24vmin solid transparent;
+    top: 15vmin;
+    z-index: 3;
+}
+
+.cover::after {
+    /*left triangle*/
+    position: absolute;
+    content: "";
+    border-left: 24.5vmin solid #fcbbcc;
+    border-bottom: 15vmin solid transparent;
+    border-top: 15vmin solid transparent;
+    top: -15vmin;
+    left: -24vmin;
+}
+
+.cover::before {
+    position: absolute;
+    content: "";
+    border-right: 24.5vmin solid #fcbbcc;
+    border-bottom: 15vmin solid transparent;
+    border-top: 15vmin solid transparent;
+    top: -15vmin;
+    left: -0.5vmin;
+}
+
+.message {
+    max-width: 90%;
+}
+
+.lid {
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15vmin solid #f980a1;
+    border-left: 24vmin solid transparent;
+    border-right: 24vmin solid transparent;
+    top: 0;
+    transform-origin: top;
+}
+
+.container .lid {
+    animation-fill-mode: forwards;
+}
+
+.container .card {
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.shadow {
+    position: relative;
+    top: 3vmin;
+    border-radius: 50%;
+    opacity: 0.7;
+    height: 2vmin;
+    width: 48vmin;
+    background: #e8c5d0;
+}
+
+.heart {
+    position: relative;
+    width: 5vmin;
+    height: 4vmin;
+    top: 7vmin;
+    left: -1vmin;
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 2.5vmin;
+    top: 7vim;
+    width: 2.5vmin;
+    height: 4vmin;
+    background: #f40b4a;
+    border-radius: 2.5vmin 2.5vmin 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fee2e9;
+    font-size: 14px;
+    color: #e63667;
+    font-weight: 550;
+}
+
+.timer {
+    color: #e63667;
+    margin-top: 40px;
+    font-weight: 650;
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timer i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.background {
+    position: absolute;
+    z-index: 1000000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    border-radius: 20px;
+    padding: 30px 50px;
+    background: #e8c5d0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.modal p {
+    font-size: 14px;
+    color: #e63667;
+    font-weight: 550;
+    margin-left: 3px;
+}
+
+.modal input {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #f6a6bf;
+    border: 1px solid #ff608d;
+    outline: none;
+    color: #e63667;
+}
+
+#close {
+    font-size: 16px;
+    color: red;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.submit {
+    cursor: pointer;
+}
+
+.open {
+    animation: open 0.5s;
+}
+
+.close {
+    animation: open-rev 2s;
+}
+
+.slide {
+    animation: slide 0.2s;
+}
+
+.slide-close {
+    animation: slide-rev 0.5s ease-out;
+}
+
+@keyframes open {
+    100% {
+        transform: rotatex(180deg);
+    }
+}
+@keyframes slide {
+    100% {
+        transform: translatey(-15vmin);
+        z-index: 2;
+    }
+}
+@keyframes open-rev {
+    from {
+        transform: rotatex(-180deg);
+    }
+}
+@keyframes slide-rev {
+    from {
+        transform: translatey(-15vmin);
+    }
+}
